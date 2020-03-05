@@ -1,0 +1,38 @@
+// these are the configurations variables($) mixin functions and there calls
+
+$primary-color: #444;
+$secondary-color: #eece1a;
+$show-home-image: true; //variable for showing image
+$home-image: url('../dist/img/background.jpg'); // variable for actual image
+$background-opacity: 0.9;
+
+
+
+@mixin easeOut { // this mixin is like a function, that returns the transition
+    transition: all .5s ease-out; // adding a fade in color sequence. all is all things with in the tag, next is time, then the type of motion, 
+}
+
+@mixin background { 
+    @if $show-home-image { //if the variable is true then id bg-img returns the background variable you set up top
+        &#bg-img {
+            background: $home-image;
+            background-attachment: fixed;
+            background-size: cover;
+
+            &:after {  //sets overlay in entire body-->
+                content: '';
+                
+                position: absolute; //covers the whole body
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1; //moves text upfront
+                background: rgba($primary-color, $background-opacity);
+                
+            }
+        }
+    }
+}
+
+

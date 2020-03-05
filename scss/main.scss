@@ -1,6 +1,78 @@
-$primary-color: #444;
+@import 'config';
+
+* {
+    box-sizing: border-box; //makes the box element, if you add padding it wont affect height or width
+}
 
 body {
+    @include background;
     background: $primary-color;
     color: #fff;
+    height: 100%;
+    margin: 0;
+    font-family: 'Seoge UI, Tahoma, Geneva, Verdana, sans-serif';
+    line-height: 1.5;
+}
+
+//headings
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-heading { // we want this to be jus the h1 class, not a class within each heading
+        font-size: 5rem; // 1rem is (16pixels(defualt html font)
+    }
+
+    &.sm-heading {
+        margin-bottom: 2rem; //pushes icons down
+        padding: 0.2rem 1rem;
+        font-size: 1rem; 
+        background: lighten($primary-color, 2);
+    }
+}
+
+a {
+    color: #fff; //text color white
+    text-decoration: none;
+}
+
+header {
+    position: fixed; //this will keep it(hamburger symbol) at the top always
+    z-index: 2;
+    width: 100%;
+
+}
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+main {
+    padding: 4rem; // add 4rem padding around everything in main
+    height: 100%;
+
+    .icon { // nest this because we only want to affect the icon class thats in the main tag
+        margin-top: 1rem;// pushes it down
+
+        a { // another nest
+            padding: 0.4rem; //spaces around ig, github buttons
+            
+            &:hover {
+                color: $secondary-color; //adds hover affect to the a links with a color
+                @include easeOut(); // this calls the mixin function
+            
+            }
+        }
+
+    }
+
+    &.home { // main with id home
+        overflow: hidden; // shows no scrollbars on page
+        
+        h1 {
+            margin-top: 20vh; // viewport height, think of the viewport as 100 slices (l to r) 20 vh is taking 20 slices off
+        }
+    }
 }

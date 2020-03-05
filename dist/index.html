@@ -4,13 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="main.css">
-    <title>Welcome to my portfolio.</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="main.css?v=2">
+    <title>Welcome to my portfolio.</title> 
 </head>
-<body>
-    <h1>
-        Hello
-    </h1>
-    
+<body id='bg-img'>
+  
+   <header>
+       <div class='menu-butonn'> <!---Hamburger icon-->
+            <div class='btn-line'></div> 
+            <div class='btn-line'></div>
+            <div class='btn-line'></div> <!--- Each div represents a line in hamburger icon-->
+
+       </div>
+
+       <nav class='menu'>
+           <div class="menu-branding">
+                <div class="portrait">
+
+                </div><!--This will represent the image, background image not inline -->
+           </div> <!---This will represent the image on left side-->
+       </nav>
+
+       <ul class="menu-nav"> <!--This will represent the Home About Projects etc.-->
+        <li class="nav-item"> <!---The actual list values Home ,etc.-->
+            <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="/projects.html" class="nav-link">Projects</a><!--Represents the links-->
+        </li>
+        <li class="nav-item">
+            <a href="/about.html" class="nav-link">About Me</a>
+        </li>
+        <li class="nav-item">
+            <a href="/contact.html" class="nav-link">Contact Me</a>
+        </li>
+       
+       </ul>
+   </header>
+   <main class="home"> <!--This is the name/description/social links will go-->
+       <h1 class="lg-heading">
+            Reggie <span class="text-secondary">Daniels</span> <!-- Allows to make lastname different color-->
+       </h1>
+       <h2 class="sm-heading">
+            Software Developer, Programmer, Entrepreneur.
+       </h2>
+       <div class="icon">
+           <a href='#!'>
+               <i class="fab fa-instagram fa-2x"></i><!--How you call font awesome btn links, with classes.-->
+           </a>
+           <a href='#!'>
+               <i class="fab fa-facebook fa-2x"></i>
+           </a>
+           <a href='#!'>
+               <i class="fab fa-github fa-2x"></i>
+           </a>
+           <a href='#!'>
+               <i class="fab fa-linkedin fa-2x"></i>
+           </a>
+       </div>
+   </main>
+   <script src="js/main.js"></script><!--create a js folder (in dist) then file.js, js will load here-->
 </body>
 </html>
