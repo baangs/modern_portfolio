@@ -14,7 +14,6 @@
         margin: 0 0 5px 0; //space between lines
         background: #fff;
         @include easeOut;
-
     }
 
     //rotate into x
@@ -35,5 +34,104 @@
                  transform: rotate(-45deg) translate(6.5px, -6.5px);
             }
         }
+    }
+}
+
+// menu overlay
+
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    visibility: hidden; // nothin will show by default
+
+    &.show {
+        visibility: visible; // nesting this, once you click button then links will show
+    }
+
+    &-branding, &-nav {// nesting these, since class name is menu nav these -nav is jus added 
+        display: flex;
+        flex-flow: column wrap; // affect to go up and down
+        align-items: center;
+        justify-content: center; // both horizontally and vertically
+        float: left;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+
+     &-nav {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: rgba(darken($primary-color, 5), 0.9);
+        @include easeOut;
+        transform: translate3d(0, -100%, 0);
+
+         &.show {
+        //slide in from top
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    //branding side
+
+    &-branding {
+        background: rgba($primary-color, 0.9);
+        @include easeOut;
+        transform: translate3d(0, 100%, 0);
+
+         &.show {
+        //slide in from top
+            transform: translate3d(0, 0, 0);
+        }
+
+        .portrait {
+            width: 250px;
+            height: 250px;
+            background: url('../dist/img/portrait.jpg');
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+        }
+    }
+
+    .nav-item {
+        transform: translate3d(600px, 0, 0);
+        @include easeOut;
+
+         &.show {
+        //slide in from right
+            transform: translate3d(0, 0, 0);
+        
+        }
+
+        &.current > a { // inside link we want to change the color of the current page
+            color: $secondary-color;
+        }
+    }
+    // links styles
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        @include easeOut;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+//delay each nav item slide by .1s
+//this is a for loop in sass
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}) { //how you would call on the variable x
+        transition-delay: $x * 0.1s;
     }
 }
