@@ -35,4 +35,28 @@ $background-opacity: 0.9;
     }
 }
 
+// media query mixins
+@mixin mediaSm { 
+    @media screen and (max-width: 500px) { // how you make a media query, any css is only apllied in this size
+        @content;
+    }
+}
+
+@mixin mediaMd { 
+    @media screen and (max-width: 768px) { // how you make a media query, any css is only apllied in this size
+        @content;
+    }
+}
+@mixin mediaLg { // for large screens we have to make a range 
+    @media screen and (min-width: 769) and (max-width: 1170px) { // how you make a media query, any css is only apllied in this size
+        @content;
+    }
+}
+@mixin mediaXl { // for xtra large 1 above max width for lg
+    @media screen and (min-width: 1171px) { // how you make a media query, any css is only apllied in this size
+        @content;
+    }
+}
+
+
 
