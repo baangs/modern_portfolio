@@ -1,7 +1,7 @@
 // these are the configurations variables($) mixin functions and there calls
 
 $primary-color: #444;
-$secondary-color: #eece1a;
+$secondary-color: #199ce7;
 $show-home-image: true; //variable for showing image
 $home-image: url('../dist/img/background.jpg'); // variable for actual image
 $background-opacity: 0.9;
@@ -32,6 +32,17 @@ $background-opacity: 0.9;
                 
             }
         }
+    }
+}
+
+//set text color
+
+@function set-text-color($color) {
+    @if (lightness($color) > 40) {
+        @return #000;
+    } 
+    @else {
+        @return #fff;
     }
 }
 

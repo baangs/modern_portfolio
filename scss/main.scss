@@ -1,6 +1,6 @@
 @import 'config';
 @import 'menu';
-@import 'mobile';
+
 
 * {
     box-sizing: border-box; //makes the box element, if you add padding it wont affect height or width
@@ -9,8 +9,9 @@
 body {
     @include background;
     background: $primary-color;
-    color: #fff;
-    height: 100%;
+    color: set-text-color($primary-color); // set text color
+    //height: 100%;
+    min-height: calc(100vh - 60px);
     margin: 0;
     font-family: 'Seoge UI, Tahoma, Geneva, Verdana, sans-serif';
     line-height: 1.5;
@@ -78,3 +79,52 @@ main {
         }
     }
 }
+
+.about-info {
+    display: grid;
+    grid-gap: 30px; //adds space between grids
+    grid-template-areas:  // makes page look excatly how this is written
+    'bioimage bio bio' //make sure you define these
+    'job1 job2 job3';
+
+    grid-template-columns: repeat(3, 1fr);
+}
+
+    .bio-image {
+        grid-area: bioimage;
+    }
+
+    .bio {
+        grid-area: bio;
+        font-size: 1.5rem;
+    }
+
+    .job-1 {
+        grid-area: job1;
+    }
+    
+    .job-2 {
+        grid-area: job2;
+    }
+    
+    .job-3 {
+        grid-area: job3;
+    }
+
+    .job {
+        background: lighten($primary-color, 5);
+        padding: 0.5rem;
+        border-bottom: $secondary-color 5px solid;
+        }
+
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    background: darken($primary-color, 10);
+    color: set-text-color($primary-color);
+    height: 60px;
+}
+
+
+@import 'mobile';
+
