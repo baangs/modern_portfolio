@@ -1,10 +1,5 @@
-@include mediaXl {
-    
-}
-@include mediaLg {
 
-}
-@include mediaMd {
+
     main {
         align-items: center;
         text-align: center;
@@ -55,11 +50,10 @@
         grid-template-columns: 1fr;
     }
 
-}
-@include mediaSm {
+
+
 
     main.home h1 {
         margin-top: 10vh;
     }
 
-}

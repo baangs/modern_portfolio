@@ -87,7 +87,7 @@ main {
     'bioimage bio bio' //make sure you define these
     'job1 job2 job3';
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 }
 
     .bio-image {
@@ -117,6 +117,56 @@ main {
         border-bottom: $secondary-color 5px solid;
         }
 
+
+.projects {
+    display: grid; // gap betweem
+    grid-gap: 0.7rem;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); //grid will show 3 at a time 
+   
+
+
+
+    img { //this code affects the images embedded inside the projects class
+        width: 100%;
+        border: 3px #199ce7 solid; //border around images are very useful
+
+    &:hover {
+        opacity: 0.5;
+        border-color: #fff;
+        @include easeOut;
+    }
+  }
+}
+
+.btn { 
+    display: block; // stack them like blocks 
+    margin-bottom: 0.3rem; //pushes icons down
+    padding: 0.5rem 1rem;
+    border: 0; 
+    
+    &:hover {
+        background: $secondary-color;
+        color: set-text-color;
+    }
+    
+}
+
+.btn-dark { // this is getting an extension for the btn we jus styled above
+    @extend .btn;
+    background: darken($primary-color, 50);
+    color: #fff;
+}
+
+.btn-light {
+    @extend .btn;
+    background: lighten($primary-color, 50);
+    color: #333;
+
+}
+
+
+
+
 #main-footer {
     text-align: center;
     padding: 1rem;
@@ -124,6 +174,8 @@ main {
     color: set-text-color($primary-color);
     height: 60px;
 }
+
+
 
 
 @import 'mobile';
